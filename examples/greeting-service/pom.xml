@@ -13,7 +13,7 @@
     <version>0.1</version>
     <properties>
         <micronaut.version>1.2.3</micronaut.version>
-        <micronaut.spring.version>1.0.1</micronaut.spring.version>
+        <micronaut.spring.version>1.0.2</micronaut.spring.version>
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <exec.mainClass>greeting.example.Application</exec.mainClass>
@@ -30,11 +30,11 @@
         </dependencies>
     </dependencyManagement>
     <dependencies>
-        <dependency>
+        <!--dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-inject</artifactId>
             <scope>compile</scope>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
@@ -44,7 +44,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-validation</artifactId>
             <scope>compile</scope>
@@ -78,19 +78,19 @@
             <groupId>io.micronaut.spring</groupId>
             <artifactId>micronaut-spring-web</artifactId>
             <scope>runtime</scope>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>io.micronaut.test</groupId>
             <artifactId>micronaut-test-junit5</artifactId>
             <version>1.0.2</version>
             <scope>test</scope>
-        </dependency>
+        </dependency-->
     </dependencies>
     <build>
         <plugins>
@@ -129,7 +129,7 @@
                         <compilerArgs>
                             <arg>-parameters</arg>
                         </compilerArgs>
-                        <annotationProcessorPaths>
+                        <!--annotationProcessorPaths>
                             <path>
                                 <groupId>io.micronaut</groupId>
                                 <artifactId>micronaut-inject-java</artifactId>
@@ -155,7 +155,7 @@
                                 <artifactId>micronaut-spring-web-annotation</artifactId>
                                 <version>${micronaut.spring.version}</version>
                             </path>
-                        </annotationProcessorPaths>
+                        </annotationProcessorPaths-->
                     </configuration>
                     <executions>
                         <execution>
