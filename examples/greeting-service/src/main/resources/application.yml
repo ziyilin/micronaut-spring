@@ -1,5 +1,7 @@
 micronaut:
   application:
     name: greeting-service
+  server:
+    port: 9000
 greeting:
   template: "Hola, %s!"

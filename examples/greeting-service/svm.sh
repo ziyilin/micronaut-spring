@@ -1,0 +1,12 @@
+CONFIG_OPT="$CONFIG_OPT -H:+TraceClassInitialization"
+CONFIG_OPT="$CONFIG_OPT -H:+ReportExceptionStackTraces"
+#CONFIG_OPT="$CONFIG_OPT -J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -J-XX:+PrintClassInitStackTrace -J-XX:ClassList=io.netty.util.internal.ObjectUtil"
+#SVM_OPT="$SVM_OPT --initialize-at-build-time=io.netty.handler.codec.http.cookie.CookieEncoder"
+#SVM_OPT="$SVM_OPT --initialize-at-build-time=io.netty.handler.codec.http.cookie.ServerCookieEncoder"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=io.micronaut.http.netty.NettyMutableHttpResponse"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=io.micronaut.core.async.publisher.Publishers"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=io.micronaut.http.HttpResponseFactory"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=io.micronaut.http.netty.websocket.NettyRxWebSocketSession"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=io.micronaut.http.netty.channel.NettyThreadFactory"
+SVM_OPT="$SVM_OPT --initialize-at-run-time=javax.el.ELUtil"
+$native_image $CONFIG_OPT $SVM_OPT -cp generatedConfigs:build/libs/greeting-service-all.jar
