@@ -14,22 +14,23 @@ import javax.validation.constraints.Pattern;
 public class GreetingController {
 
     private final GreetingService greetingService;
-
+    private static final String PREFIX="2016-08-15/proxy/FaaSDemo.LATEST/svm_hello";
+    
     public GreetingController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
-    @GetMapping("/greeting")
+    @GetMapping(PREFIX+"/greeting")
     public Greeting greeting(@RequestParam(value="name", defaultValue="World") @Pattern(regexp = "\\D+") String name) {
         return greetingService.greeting(name);
     }
 
-    @PostMapping("/greeting")
+    @PostMapping(PREFIX+"/greeting")
     public Greeting greetingByPost(@RequestBody Greeting greeting) {
         return greetingService.greeting(greeting.getContent());
     }
 
-    @DeleteMapping("/greeting")
+    @DeleteMapping(PREFIX+"/greeting")
     @Hidden
     public ResponseEntity<?> deleteGreeting() {
         MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
@@ -38,13 +39,13 @@ public class GreetingController {
     }
 
 
-    @GetMapping("/greeting-status")
+    @GetMapping(PREFIX+"/greeting-status")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Greeting greetingWithStatus(@RequestParam(value="name", defaultValue="World") @Pattern(regexp = "\\D+") String name) {
         return greetingService.greeting(name);
     }
 
-    @GetMapping(path = "/", produces = "text/html")
+    @GetMapping(path = PREFIX+"/", produces = "text/html")
     public String home(Model model) {
         model.addAttribute(
                 "message",
