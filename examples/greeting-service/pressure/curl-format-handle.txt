@@ -1,0 +1,3 @@
+       ----------\n
+     server_handler:  %{time_starttransfer}-%{time_pretransfer}\n
+         time_total:  %{http_code}:%{time_total}\n%

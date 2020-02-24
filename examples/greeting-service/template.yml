@@ -1,0 +1,20 @@
+ROSTemplateFormatVersion: '2015-09-01'
+Transform: 'Aliyun::Serverless-2018-04-03'
+Resources:
+  FaaSDemo:
+    Type: 'Aliyun::Serverless::Service'
+    Properties:
+      Description: 'helloworld'
+    svm_hello:
+      Type: 'Aliyun::Serverless::Function'
+      Properties:
+        Handler: main.handler
+        Runtime: custom
+        CodeUri: './demo'
+      Events:
+        http-test:
+          Type: HTTP
+          Properties:
+            Qualifier: LATEST
+            AuthType: ANONYMOUS
+            Methods: ['GET', 'POST', 'PUT', 'DELETE', 'HEAD']
