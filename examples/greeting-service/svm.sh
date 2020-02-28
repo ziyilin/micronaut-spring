@@ -1,5 +1,8 @@
 CONFIG_OPT="$CONFIG_OPT -H:+TraceClassInitialization"
 CONFIG_OPT="$CONFIG_OPT -H:+ReportExceptionStackTraces"
+CONFIG_OPT="${CONFIG_OPT} -H:+AllowMemoryReclaim"
+CONFIG_OPT="${CONFIG_OPT} -H:+UsePostBarrierForBootImage"
+
 #CONFIG_OPT="$CONFIG_OPT -J-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8000 -J-XX:+PrintClassInitStackTrace -J-XX:ClassList=io.netty.util.internal.ObjectUtil"
 #SVM_OPT="$SVM_OPT --initialize-at-build-time=io.netty.handler.codec.http.cookie.CookieEncoder"
 #SVM_OPT="$SVM_OPT --initialize-at-build-time=io.netty.handler.codec.http.cookie.ServerCookieEncoder"
